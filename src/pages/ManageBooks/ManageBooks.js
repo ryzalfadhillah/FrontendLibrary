@@ -15,7 +15,7 @@ const ManageBooks = () => {
     },[books])
 
     const getBooks = async () => {
-        const response = await axios.get('http://localhost:8080/books');
+        const response = await axios.get('https://gothic-concept-379009.uc.r.appspot.com/books');
         setBooks(response.data);
     }
 
@@ -27,7 +27,7 @@ const ManageBooks = () => {
     
     const handleDelete = async (id) => {
         try{
-            await axios.delete(`http://localhost:8080/books/${id}`);
+            await axios.delete(`https://gothic-concept-379009.uc.r.appspot.com/books/${id}`);
             getBooks();
         } catch (e) {
             alert('Error deleting books');
@@ -38,10 +38,10 @@ const ManageBooks = () => {
         try {
             if (selectedBook) {
               // Jika ada selectedBook, artinya kita sedang dalam mode edit
-                await axios.patch(`http://localhost:8080/books/${selectedBook.id}`, book);
+                await axios.patch(`https://gothic-concept-379009.uc.r.appspot.com/books/${selectedBook.id}`, book);
             } else {
               // Jika selectedBook tidak ada, artinya kita sedang dalam mode tambah buku baru
-                await axios.post('http://localhost:8080/books', book);
+                await axios.post('https://gothic-concept-379009.uc.r.appspot.com/books', book);
             }
             setShowModal(false);
             setSelectedBook(null);

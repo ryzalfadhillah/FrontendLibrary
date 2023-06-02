@@ -15,7 +15,7 @@ const ManageMembership = () => {
     },[members])
 
     const getMembers = async () => {
-        const response = await axios.get('http://localhost:8080/members');
+        const response = await axios.get('https://gothic-concept-379009.uc.r.appspot.com/members');
         setMembers(response.data);
     }
 
@@ -27,7 +27,7 @@ const ManageMembership = () => {
     
     const handleDelete = async (id) => {
         try{
-            await axios.delete(`http://localhost:8080/members/${id}`);
+            await axios.delete(`https://gothic-concept-379009.uc.r.appspot.com/members/${id}`);
             getMembers();
         } catch (e) {
             alert('Error deleting members');
@@ -38,10 +38,10 @@ const ManageMembership = () => {
         try {
             if (selectedMember) {
               // Jika ada selectedMember, artinya kita sedang dalam mode edit
-                await axios.patch(`http://localhost:8080/members/${selectedMember.id}`, member);
+                await axios.patch(`https://gothic-concept-379009.uc.r.appspot.com/members/${selectedMember.id}`, member);
             } else {
               // Jika selectedMember tidak ada, artinya kita sedang dalam mode tambah buku baru
-                await axios.post('http://localhost:8080/members', member);
+                await axios.post('https://gothic-concept-379009.uc.r.appspot.com/members', member);
             }
             setShowModal(false);
             setSelectedMember(null);
